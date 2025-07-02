@@ -1,86 +1,59 @@
-# MES MCP Project User Stories
+User Story: MCP 管理系统 (增强版)
+作为一个 MES 生产经理，我需要一个 MCP 管理系统，以便能够：
 
-## User Story 1: View Production Analytics
+MCP 服务器与 LLM 管理
+配置和管理多个 MCP 服务器：我可以轻松地添加、编辑和删除 MCP 服务器的连接信息，确保系统能够连接到不同环境下的 MCP 实例。
 
-*   **Title:** View Production Analytics Dashboard
-*   **As a:** Production Planner
-*   **I want to:** Access a dashboard with charts and analytics from our MES data.
-*   **So that I can:** Quickly understand the current production status and identify potential issues.
-*   **Acceptance Criteria:**
-    *   The dashboard displays key production metrics, such as order status, production volume, and cycle times.
-    *   Data is visualized using clear and interactive charts (e.g., bar charts, line graphs, pie charts).
-    *   The dashboard provides filters to view data by date range, production line, or product.
-    *   The data on the dashboard is refreshed in near real-time from the MES.
+接入和配置各种大语言模型 (LLM)：无论这些 LLM 是部署在本地还是远程，我都能够方便地配置它们的接口信息（例如 API 地址、密钥等），以便系统能够调用它们进行自然语言处理。
 
-## User Story 2: Receive Production Recommendations
+接入外部 MCP 服务器：系统应该能够无缝地接入和集成外部的 MCP 服务器，从而扩展其功能和覆盖范围。
 
-*   **Title:** Receive AI-Driven Production Recommendations
-*   **As a:** Production Planner
-*   **I want to:** Receive AI-driven advice on how to optimize the production schedule.
-*   **So that I can:** Improve efficiency and reduce costs.
-*   **Acceptance Criteria:**
-    *   The system analyzes MES data to identify opportunities for improvement.
-    *   Recommendations are presented in a clear and actionable format.
-    *   The system provides the reasoning behind each recommendation.
-    *   The user can accept or dismiss recommendations.
+Langflow 工作流与数据处理
+配置和管理 Langflow 工作流：我需要一个集成的 Langflow 界面，能够通过拖拽和连接节点的方式，配置各种工作流。
 
-## User Story 3: Create New Production Orders
+自定义多阶段工作流：每个工作流都可以通过配置 多个连续的工作节点 组成，实现复杂的数据处理和业务逻辑。
 
-*   **Title:** Create New Production Orders in MES
-*   **As a:** Production Planner
-*   **I want to:** Create new production orders directly in the MES through the system.
-*   **So that I can:** Respond quickly to new sales orders.
-*   **Acceptance Criteria:**
-    *   The user can create a new production order with all required information (e.g., product, quantity, due date).
-    *   The system validates the order information before submitting it to the MES.
-    *   The new order is reflected in the MES immediately after creation.
-    *   The user receives a confirmation that the order was created successfully.
+精细化数据处理控制：工作流的每个节点都应该能够 控制数据库某个表格里面的具体数据处理，包括但不限于数据的读取、写入、修改、删除、聚合、清洗和转换等操作。
 
-## User Story 4: Adjust Existing Production Orders
+智能数据交互与分析
+通过自然语言交互查询生产数据：我可以通过一个 聊天对话框 使用日常语言提问，系统能够理解我的意图并从连接的数据库中获取相关生产数据。
 
-*   **Title:** Adjust Existing Production Orders in MES
-*   **As a:** Production Planner
-*   **I want to:** Update existing production orders to resolve issues or adjust for changes in demand.
-*   **So that I can:** Ensure sales orders are fulfilled correctly and on time.
-*   **Acceptance Criteria:**
-    *   The user can search for and select an existing production order to modify.
-    *   The user can update key fields in the order, such as quantity, due date, or priority.
-    *   The system validates the changes before submitting them to the MES.
-    *   The updated order is reflected in the MES immediately after the update.
-    *   The user receives a confirmation that the order was updated successfully.
+以多种格式查看数据分析结果：系统能够根据我的查询，将数据以 表格、图表 (Chart) 等多种可视化形式呈现，让我能够直观地理解数据。
 
-## User Story 5: Analyze Order Fulfillment
+查看和管理生产订单：我能够通过自然语言查询特定生产订单的详细信息，包括状态、物料、进度等，并且在权限允许的情况下，能够修改订单的关键信息。
 
-*   **Title:** Analyze Production vs. Sales Order Alignment
-*   **As a:** Production Planner
-*   **I want to:** Analyze the alignment between production orders and sales orders.
-*   **So that I can:** Identify and rectify any discrepancies.
-*   **Acceptance Criteria:**
-    *   The system provides a view that compares production orders with corresponding sales orders.
-    *   Discrepancies (e.g., quantity mismatches, delivery delays) are highlighted.
-    *   The user can drill down into specific orders to see more details.
-    *   The system suggests actions to resolve identified discrepancies.
+进行精益化分析：我可以通过提问，让系统利用 LLM 对生产数据进行分析，例如识别瓶颈、预测趋势、提出优化建议等，从而支持我进行精益生产改进。
 
-## User Story 6: Configure MES Connection
+数据库连接
+连接主流数据库：系统需要支持市面上大部分主流数据库（例如 SQL Server, MySQL, PostgreSQL, Oracle 等），确保我现有的数据源能够无缝接入。
 
-*   **Title:** Configure and Manage MES Connection
-*   **As a:** System Administrator
-*   **I want to:** Configure and manage the connection to our MES.
-*   **So that I can:** Ensure the application can reliably access and update production data.
-*   **Acceptance Criteria:**
-    *   The system provides a secure interface for entering MES connection details (e.g., API endpoint, credentials).
-    *   The system can test the connection to the MES to ensure it is working correctly.
-    *   The connection status is monitored and displayed in the admin interface.
-    *   Alerts are generated if the connection to the MES is lost.
+验收标准
+MCP/LLM 集成：
 
-## User Story 7: Manage LangFlow Integration
+成功连接并管理至少 3 个不同类型的 MCP 服务器，包括至少 1 个外部 MCP 服务器。
 
-*   **Title:** Manage LangFlow Integration for Data Analysis
-*   **As a:** System Administrator
-*   **I want to:** Manage the LangFlow integration.
-*   **So that I can:** Ensure that the data matching and analysis models are working correctly.
-*   **Acceptance Criteria:**
-    *   The system provides an interface for configuring the LangFlow integration.
-    *   The administrator can select and deploy different LangFlow models for analysis.
-    *   The performance of the LangFlow models is monitored and reported.
-    *   The system can be configured to retrain or update the models as needed.
+成功配置并调用至少 2 种不同部署方式（本地/远程）的大语言模型。
+
+Langflow 工作流功能：
+
+能够通过 Langflow 界面创建至少 3 个包含 3 个以上连续节点的复杂工作流。
+
+工作流中的每个节点都能成功对数据库中指定表格的特定数据进行精确处理（例如：节点1读取订单，节点2修改订单状态，节点3记录操作日志）。
+
+智能交互与分析：
+
+能够通过聊天对话框，使用自然语言准确查询至少 5 种不同的生产数据类型（例如库存、订单状态、设备稼动率、物料消耗、产品质量）。
+
+系统能将查询结果以表格和至少 3 种不同类型的图表（例如柱状图、折线图、饼图、散点图）展示。
+
+能够成功查询并显示特定生产订单的所有关键信息。
+
+在权限允许下，能够成功修改生产订单的指定字段。
+
+系统能够根据自然语言请求，提供至少 2 个精益化分析的案例（例如，识别稼动率最低的设备，分析产品缺陷原因并提出改进措施，预测未来一周的生产量）。
+
+数据库兼容性：
+
+系统能够成功连接并查询至少 3 种不同的主流数据库。
+
+这个增强版的 User Story 提供了更详细的功能描述，特别是对 Langflow 工作流的集成和数据处理能力的强调。您认为这些补充是否符合您的预期，或者还有哪些方面需要进一步完善呢？

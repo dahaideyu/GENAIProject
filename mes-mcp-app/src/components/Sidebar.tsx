@@ -9,6 +9,7 @@ const links = [
   { href: '/orders', label: 'Orders' },
   { href: '/fulfillment', label: 'Fulfillment Analysis' },
   { href: '/recommendations', label: 'Recommendations' },
+  { href: '/workflows', label: 'Workflows' },
   { href: '/settings', label: 'Settings' },
 ];
 
